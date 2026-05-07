@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>부스 스탬프 투어</title>
+
+    <meta property="og:title" content="🏃🏻‍➡️부스 스탬프 투어🏅">
+    <meta property="og:description" content="각 부스를 방문하고 사진을 찍어 스탬프를 모으세요!">
+    <meta property="og:image" content="https://lye-joseph.github.io/gainge-booth-stamp-tour/header-banner.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lye-joseph.github.io/gainge-booth-stamp-tour/">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 개발 모드 초기화 버튼 ( ?dev=1 일 때 표시 ) -->
+        <button id="devResetBtn" class="dev-reset-btn" style="display:none;">테스트 초기화</button>
+        <!-- 헤더 배너 -->
+        <div class="header-banner">
+            <img src="header-banner.png" alt="기술을 넘어 다시 사람으로" class="banner-image">
+        </div>
+
+        <header>
+            <h1>🏃🏻‍➡️부스 스탬프 투어🏅</h1>
+            <p class="subtitle">각 부스를 방문하고 사진을 찍어 스탬프를 모으세요!</p>
+        </header>
+
+        <div class="stamp-counter">
+            <span id="stampCount">0</span> / 12 완료
+        </div>
+
+        <!-- 상품수령 정보 등록 섹션 (카운터 아래, 로드맵 위) -->
+        <div class="reward-section" id="rewardSection">
+            <div class="reward-card">
+                <h3>🏆 부스 스탬프 투어 이벤트</h3>
+                <p class="reward-guide">- 리워드는 일주일 내에 연락 및 지급될 예정입니다.</p>
+                <div class="reward-info">
+                    <div class="reward-item">
+                        <span class="reward-count">12개 완주(선착순 5명)</span>
+                        <span class="reward-gift">치킨 기프티콘</span>
+                    </div>
+                    <div class="reward-item">
+                        <span class="reward-count">9개 이상(선착순 10명)</span>
+                        <span class="reward-gift">커피 기프티콘</span>
+                    </div>
+                    <div class="reward-item">
+                        <span class="reward-count">7개 이상(선착순 50명)</span>
+                        <span class="reward-gift">에너지 드링크 기프티콘</span>
+                    </div>
+                </div>
+                <p class="reward-note">*부스 스탬프 투어 리워드는 중복 지급되지 않습니다.</p>
+                <button class="reward-btn" id="rewardBtn" disabled>상품수령 정보 등록하기</button>
+            </div>
+        </div>
+
+        <div class="roadmap">
+            <!-- 부스 1 -->
+            <div class="booth" data-booth-id="booth1" style="top: 20px;">
+                <div class="booth-circle">
+                    <span class="booth-number">1</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 1 | 링글</div>
+                <button class="company-intro-btn" data-booth="1">기업 소개 바로가기</button>
+            </div>
+
+            <!-- 부스 2 -->
+            <div class="booth" data-booth-id="booth2" style="top: 180px;">
+                <div class="booth-circle">
+                    <span class="booth-number">2</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 2 | 하이펀딩</div>
+                <button class="company-intro-btn" data-booth="2">기업 소개 바로가기</button>
+            </div>
+
+            <!-- 부스 3 -->
+            <div class="booth" data-booth-id="booth3" style="top: 340px;">
+                <div class="booth-circle">
+                    <span class="booth-number">3</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 3 | 크리니티(주)</div>
+                <button class="company-intro-btn" data-booth="3">기업 소개 바로가기</button>
+            </div>
+
+            <!-- 부스 4 -->
+            <div class="booth" data-booth-id="booth4" style="top: 500px;">
+                <div class="booth-circle">
+                    <span class="booth-number">4</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 4 | 아더런스</div>
+                <button class="company-intro-btn" data-booth="4">기업 소개 바로가기</button>
+            </div>
+
+            <!-- 부스 5 -->
+            <div class="booth" data-booth-id="booth5" style="top: 660px;">
+                <div class="booth-circle">
+                    <span class="booth-number">5</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 5 | (주)메텔</div>
+                <button class="company-intro-btn" data-booth="5">기업 소개 바로가기</button>
+            </div>
+
+            <!-- 부스 6 -->
+            <div class="booth" data-booth-id="booth6" style="top: 820px;">
+                <div class="booth-circle">
+                    <span class="booth-number">6</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 6 | (주)원츠넷</div>
+                <button class="company-intro-btn" data-booth="6">기업 소개 바로가기</button>
+            </div>
+
+            <!-- 부스 7 -->
+            <div class="booth" data-booth-id="booth7" style="top: 980px;">
+                <div class="booth-circle">
+                    <span class="booth-number">7</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 7 | 단디메이드</div>
+                <button class="company-intro-btn" data-booth="7">기업 소개 바로가기</button>
+            </div>
+
+            <!-- 부스 8 -->
+            <div class="booth" data-booth-id="booth8" style="top: 1140px;">
+                <div class="booth-circle">
+                    <span class="booth-number">8</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 8 | (주)소금광산</div>
+                <button class="company-intro-btn" data-booth="8">기업 소개 바로가기</button>
+            </div>
+
+            <!-- 부스 9 -->
+            <div class="booth" data-booth-id="booth9" style="top: 1300px;">
+                <div class="booth-circle">
+                    <span class="booth-number">9</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 9 | (주)코멘토</div>
+                <button class="company-intro-btn" data-booth="9">기업 소개 바로가기</button>
+            </div>
+
+            <!-- 부스 10 -->
+            <div class="booth" data-booth-id="booth10" style="top: 1460px;">
+                <div class="booth-circle">
+                    <span class="booth-number">10</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 10 | (주)이너스커뮤니티</div>
+                <button class="company-intro-btn" data-booth="10">기업 소개 바로가기</button>
+            </div>
+
+            <!-- 부스 11 -->
+            <div class="booth" data-booth-id="booth11" style="top: 1620px;">
+                <div class="booth-circle">
+                    <span class="booth-number">11</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 11 | 가인지 성장클럽</div>
+                <button class="company-intro-btn" data-booth="11">기업 소개 바로가기</button>
+            </div>
+
+            <!-- 부스 12 -->
+            <div class="booth" data-booth-id="booth12" style="top: 1780px;">
+                <div class="booth-circle">
+                    <span class="booth-number">12</span>
+                    <span class="stamp-icon">✓</span>
+                </div>
+                <div class="booth-label">부스 12 | 가인지 굿즈 부스</div>
+                <button class="company-intro-btn" data-booth="12">기업 소개 바로가기</button>
+            </div>
+        </div>
+
+        <!-- 카메라 입력 (숨김) -->
+        <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display: none;">
+
+        <!-- 완료 메시지 -->
+        <div id="completeModal" class="modal">
+            <div class="modal-content">
+                <div class="completion-icon">🏆</div>
+                <button class="close-icon-btn" id="closeCompleteModal">×</button>
+                <h2>🎉 축하합니다!</h2>
+                <p class="completion-message">모든 부스의<br>스탬프를 모았습니다!</p>
+                <p class="completion-subtitle">스탬프 투어를 완주하셨습니다! 🎊</p>
+            </div>
+        </div>
+
+        <!-- 상품수령 정보 입력 모달 -->
+        <div id="rewardModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>🏆 상품수령 정보 등록</h2>
+                    <button class="close-btn" id="closeRewardModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="reward-level" id="rewardLevel"></div>
+                    <form id="rewardForm">
+                        <div class="form-group">
+                            <label for="userName">이름 *</label>
+                            <input type="text" id="userName" name="userName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">직급</label>
+                            <input type="text" id="position" name="position" placeholder="예: 매니저 / 팀장 / 주임">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyName">회사명 *</label>
+                            <input type="text" id="companyName" name="companyName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">연락처 *</label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="010-1234-5678">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">이메일 *</label>
+                            <input type="email" id="email" name="email" required placeholder="example@email.com">
+                        </div>
+                        <p class="privacy-note">수집된 개인정보는<br>리워드 전달을 위해서만 사용됩니다</p>
+                        <button type="submit" class="submit-btn">정보 등록하기</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
