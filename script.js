@@ -6,7 +6,7 @@
 
 // ==================== 설정 ====================
 // Google Apps Script Web App URL (배포 후 여기에 입력)
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzZ1vKrUnS8U9cM46e1z91Urnvqco7O-500V-ApXp8DVetZV_9CucqvIDvt9k83Qy8Tdw/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxFhrp9qSb0unWFdlKpGUYT75x8IYoybJeJkv3eGjvanASHyWMX2GTaeUDDUYcPzAAUmw/exec';
 
 // 전체 부스 수 (UI·완주 판정과 동기화)
 const TOTAL_BOOTHS = 12;
