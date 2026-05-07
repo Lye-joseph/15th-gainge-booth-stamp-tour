@@ -235,26 +235,34 @@ header h1 {
 
 .roadmap {
     position: relative;
-    height: 1980px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    height: auto;
+    min-height: 400px;
     background: white;
     border-radius: 20px;
-    padding: 30px 20px;
+    padding: 30px 20px 40px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 
 .booth {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 300px;
     text-align: center;
     z-index: 2;
     cursor: pointer;
     transition: transform 0.2s ease;
+    flex-shrink: 0;
 }
 
 .booth:active {
-    transform: translateX(-50%) scale(0.95);
+    transform: scale(0.95);
 }
 
 .booth-circle {
@@ -316,6 +324,9 @@ header h1 {
     transition: color 0.3s ease;
     margin-top: 5px;
     text-align: center;
+    line-height: 1.35;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .booth.stamped .booth-label {
@@ -353,15 +364,15 @@ header h1 {
 /* 애니메이션 효과 */
 @keyframes pulse {
     0% {
-        transform: translateX(-50%) scale(1);
+        transform: scale(1);
     }
 
     50% {
-        transform: translateX(-50%) scale(1.1);
+        transform: scale(1.06);
     }
 
     100% {
-        transform: translateX(-50%) scale(1);
+        transform: scale(1);
     }
 }
 
